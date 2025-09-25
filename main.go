@@ -1,10 +1,14 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
+	"strings"
 )
 
-var data []string // slice untuk simpan data
+var data []string 
+var reader = bufio.Newreader(os.Stidin)
 
 func main() {
 	for {
