@@ -8,7 +8,7 @@ import (
 )
 
 var data []string 
-var reader = bufio.Newreader(os.Stidin)
+var reader = bufio.NewReader(os.Stdin)
 
 func main() {
 	for {
@@ -42,9 +42,9 @@ func main() {
 }
 
 func tambahData() {
-	var nama string
 	fmt.Print("Masukkan nama: ")
-	fmt.Scanln(&nama)
+	nama, _ := reader.ReadString('\n')
+	nama = strings.TrimSpace(nama)
 	data = append(data, nama)
 	fmt.Println("Data berhasil ditambahkan!")
 }
@@ -75,9 +75,9 @@ func updateData() {
 		return
 	}
 
-	var namaBaru string
 	fmt.Print("Masukkan nama baru: ")
-	fmt.Scanln(&namaBaru)
+	namaBaru, _ := reader.ReadString('\n')
+	namaBaru = strings.TrimSpace(namaBaru)
 	data[index-1] = namaBaru
 	fmt.Println("Data berhasil diupdate!")
 }
